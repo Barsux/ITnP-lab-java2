@@ -24,10 +24,10 @@ public class Point3d extends Point2d {
     }
     //Сравнивает объект с другим объектом, подаваемым через аргумент, по значению.
     public boolean compare(Point3d point){
-        return (this.xCoord == point.xCoord && this.yCoord == point.yCoord && this.zCoord == point.zCoord);
+        return (this.xCoord == point.getX() && this.yCoord == point.getY() && this.zCoord == point.getZ());
     }
     //Возвращает геометрическое расстояние между двумя точками.
     public double distanceTo(Point3d point){
-        return Math.sqrt(Math.pow(this.xCoord - point.xCoord, 2) + Math.pow(this.yCoord - point.yCoord, 2) + Math.pow(this.zCoord - point.zCoord, 2));
+        return Math.sqrt(Math.pow(this.xCoord - point.getX(), 2) + Math.pow(this.yCoord - point.getY(), 2) + Math.pow(this.zCoord - point.getZ(), 2));
     }
 }
