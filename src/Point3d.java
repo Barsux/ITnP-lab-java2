@@ -1,33 +1,28 @@
 //Класс трёхмерной точки в пространстве наследуемый от двумерной точки
 public class Point3d extends Point2d {
-    //Объявляем переменные координат привантно, чтобы к ним не было доступа вне класса. Объявляем ещё раз, потому что они не наследовались от двумерной.
-    private double xCoord;
-    private double yCoord;
+    //Объявляем переменную координат привантно.
     private double zCoord;
-    //Конструктор класса тоже делаем заново
+    //Конструктор класса.
     Point3d(double x, double y, double z) {
-        this.xCoord = x;
-        this.yCoord = y;
-        this.zCoord = z;
+        super(x, y);
+        zCoord = z;
     }
     //Базовый конструктор класса
     Point3d(){
         this(0.0, 0.0, 0.0);
     }
-    //Новый геттер
     public double getZ() {
         return zCoord;
     }
-    //Новый сеттер
     public void setZ(double z) {
-        this.zCoord = z;
+        zCoord = z;
     }
-    //Сравнивает объект с другим объектом, подаваемым через аргумент, по значению.
+    //Сравнивает объект с другим объектом, по значению.
     public boolean compare(Point3d point){
-        return (this.xCoord == point.xCoord && this.yCoord == point.yCoord && this.zCoord == point.zCoord);
+        return (this.getX() == point.getX() && this.getY() == point.getY() && zCoord == point.getZ());
     }
     //Возвращает геометрическое расстояние между двумя точками.
     public double distanceTo(Point3d point){
-        return Math.sqrt(Math.pow(this.xCoord - point.xCoord, 2) + Math.pow(this.yCoord - point.yCoord, 2) + Math.pow(this.zCoord - point.zCoord, 2));
+        return Math.sqrt(Math.pow(this.getX() - point.getX(), 2) + Math.pow(this.getY() - point.getY(), 2) + Math.pow(zCoord - point.getZ(), 2));
     }
 }

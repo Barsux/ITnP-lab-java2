@@ -12,9 +12,9 @@ public class Lab1 {
             //Итерация в цикле для считывания координат три раза и записи их в массив сначала координат, потом точек
             for(int j = 0; j < 3; j++){
                 char coord;
-                if(j == 0)coord = 'x';
-                else if (j == 1)coord = 'y';
-                else coord = 'z';
+                if      (j == 0)    coord = 'x';
+                else if (j == 1)    coord = 'y';
+                else                coord = 'z';
                 System.out.print("Введите координату " + coord + " точки " + (i + 1) + ": ");
                 coords[j] = scanner.nextDouble();
             }
@@ -25,9 +25,13 @@ public class Lab1 {
             System.out.println("Одна из точек совпадает с другой!");
             return;
         }
-        System.out.println("Площадь треугольника: " + computeArea(points[0], points[1], points[2]));
+        double area = computeArea(points[0], points[1], points[2]);
+        if(area == 0){
+            System.out.println("Точки лежат на одной прямой!");
+            return;
+        }
+        System.out.println("Площадь треугольника: " + area);
     }
-
     //Функция для вычисления площади треугольника по трем точкам с применением формулы Герона.
     public static double computeArea(Point3d point1, Point3d point2, Point3d point3){
         double a = point1.distanceTo(point2);
